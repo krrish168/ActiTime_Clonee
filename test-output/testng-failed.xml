@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="5" name="chromeTest(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="nodeUrl" value="http://localhost:4444/wd/hub/"/>
+    <parameter name="appUrl" value="https://demo.actitime.com/login.do"/>
+    <classes>
+      <class name="com.actitime.tests.VerifyVersionTest">
+        <methods>
+          <include name="testVerifyVersion"/>
+          <include name="preCondition"/>
+          <include name="postCondition"/>
+        </methods>
+      </class> <!-- com.actitime.tests.VerifyVersionTest -->
+    </classes>
+  </test> <!-- chromeTest(failed) -->
+  <test thread-count="5" name="firefoxTest(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="nodeUrl" value="http://localhost:4444/wd/hub/"/>
+    <parameter name="appUrl" value="https://demo.actitime.com/login.do"/>
+    <classes>
+      <class name="com.actitime.tests.VerifyBuildNumberTest">
+        <methods>
+          <include name="preCondition"/>
+          <include name="postCondition"/>
+          <include name="testVerifyBuildNumber"/>
+        </methods>
+      </class> <!-- com.actitime.tests.VerifyBuildNumberTest -->
+      <class name="com.actitime.tests.VerifyVersionTest">
+        <methods>
+          <include name="testVerifyVersion"/>
+          <include name="preCondition"/>
+          <include name="postCondition"/>
+        </methods>
+      </class> <!-- com.actitime.tests.VerifyVersionTest -->
+      <class name="com.actitime.tests.ValidLoginLogoutTest">
+        <methods>
+          <include name="validLoginLogout"/>
+          <include name="preCondition"/>
+          <include name="postCondition"/>
+        </methods>
+      </class> <!-- com.actitime.tests.ValidLoginLogoutTest -->
+    </classes>
+  </test> <!-- firefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
