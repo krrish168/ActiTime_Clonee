@@ -25,7 +25,7 @@ public class ExcelData
 		}
 		catch(Exception e)
 		{
-			return "";
+			return ""; //it returns empty data as string value..if null assigned -it is also becomes a data.
 		}
 	}
 	//To get row count

@@ -1,8 +1,10 @@
 package com.actitime.generic;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -14,6 +16,21 @@ import org.openqa.selenium.support.ui.Select;
 
 public class GenericUtils
 {
+	public static String getProperty(String path,String key)
+	{
+		String value="";
+		Properties p=new Properties();
+		try
+		{
+			p.load(new FileInputStream(path));
+			value=p.getProperty(key);//recurssion of method
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return value;
+	}
 	public static void getScreenshot(WebDriver driver,String name)
 	{
 		try

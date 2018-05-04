@@ -16,19 +16,19 @@ import org.testng.annotations.Parameters;
 public abstract class BaseTest implements AutoConstant 
 {
 	public WebDriver driver;
-	@Parameters({"nodeUrl","browser","appUrl"})
+	//@Parameters({"nodeUrl","browser","appUrl"})
 	@BeforeMethod
-	public void preCondition(String nodeUrl,String browser,String appUrl) throws MalformedURLException
-	//public void preCondition()
+	//public void preCondition(String nodeUrl,String browser,String appUrl) throws MalformedURLException
+	public void preCondition(String url)
 	{
 		
-		URL url=new URL(nodeUrl);
+		/*URL url=new URL(nodeUrl);
 		DesiredCapabilities dc=new DesiredCapabilities();
 		dc.setBrowserName(browser);
 		driver=new RemoteWebDriver(url,dc);
-		driver.get(appUrl);
+		driver.get(appUrl);*/
 		
-		/*System.setProperty(chrome_key,chrome_value);
+		System.setProperty(chrome_key,chrome_value);
 		System.setProperty(gecko_value, gecko_key);
 		//(assigning driver) Open the Browser / Launch the Browser
 		driver=new ChromeDriver();
@@ -37,8 +37,10 @@ public abstract class BaseTest implements AutoConstant
 		//enter the URL
 		//driver.navigate().to("http://localhost/login.do");	
 		//or
-		driver.get("https://demo.actitime.com/login.do");
-	*/
+		String appUrl=GenericUtils.getProperty(config_path, url);
+		//driver.get("https://demo.actitime.com/login.do");
+		driver.get(appUrl);
+	
 	}
 		
 		@AfterMethod
